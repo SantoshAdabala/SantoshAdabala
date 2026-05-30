@@ -7,7 +7,6 @@
 [![Portfolio](https://img.shields.io/badge/Portfolio-santoshadabala.com-6366F1?style=for-the-badge&logo=googlechrome&logoColor=white)](https://santoshadabala.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/santosh-adabala/)
 [![Email](https://img.shields.io/badge/Email-santoshbalu25%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:santoshbalu25@gmail.com)
-[![Location](https://img.shields.io/badge/Lakewood%2C%20CO-USA-10B981?style=for-the-badge&logo=googlemaps&logoColor=white)](https://www.google.com/maps/place/Lakewood,+CO)
 
 </div>
 
