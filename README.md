@@ -158,11 +158,20 @@ A modular parenting agent built on Google's Agent Development Kit. Root agent de
 
 <div align="center">
 
-![Santosh's GitHub Stats](https://github-readme-stats.vercel.app/api?username=SantoshAdabala&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true&bg_color=0d1117&title_color=a78bfa&icon_color=6366f1&text_color=e2e8f0)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=SantoshAdabala&layout=compact&theme=tokyonight&hide_border=true&langs_count=6&bg_color=0d1117&title_color=a78bfa&text_color=e2e8f0)
-
 ![GitHub Streak](https://streak-stats.demolab.com?user=SantoshAdabala&theme=tokyonight&hide_border=true&background=0d1117&ring=a78bfa&fire=6366f1&currStreakLabel=a78bfa)
+
+<br/>
+
+![Profile Summary](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=SantoshAdabala&theme=tokyonight)
+
+<br/>
+
+![Stats](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=SantoshAdabala&theme=tokyonight)
+![Most Used Languages](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=SantoshAdabala&theme=tokyonight)
+
+<br/>
+
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=SantoshAdabala&theme=tokyo-night&hide_border=true&bg_color=0d1117&color=a78bfa&line=6366f1&point=a78bfa)
 
 </div>
 
