@@ -14,7 +14,7 @@
 
 ## What I work on
 
-I build ML systems end-to-end — from training runs on rented GPUs to production inference APIs that actually stay up. My focus is the gap between "it works in the notebook" and "it runs at scale without falling over."
+I build ML systems end-to-end - from training runs on rented GPUs to production inference APIs that actually stay up. My focus is the gap between "it works in the notebook" and "it runs at scale without falling over."
 
 Current obsessions: LLM alignment (why does reward accuracy diverge from factuality?), model compression without killing accuracy, and distributed ML pipelines that don't require a dedicated ops team to maintain.
 
@@ -27,12 +27,12 @@ Current obsessions: LLM alignment (why does reward accuracy diverge from factual
 | | Result | Project |
 |---|---|---|
 | **DPO Reward Accuracy** | 82% (peak 88%) | distill-align-llm |
-| **Factuality — LLM-judge** | 75.7% on 500-prompt benchmark | distill-align-llm |
-| **Model Compression** | 107.7M → 65.2M params · 93.2% F1 retained | clinical-nlp-optimization |
-| **Inference Speedup** | 39ms → 10.8ms · 1.9× faster | clinical-nlp-optimization |
+| **Factuality - LLM-judge** | 75.7% on 500-prompt benchmark | distill-align-llm |
+| **Model Compression** | 107.7M -> 65.2M params, 93.2% F1 retained | clinical-nlp-optimization |
+| **Inference Speedup** | 39ms -> 10.8ms, 1.9× faster | clinical-nlp-optimization |
 | **Weak Label Generation** | 19,506 entities from 7,064 PubMed abstracts | clinical-nlp-optimization |
 | **SLA Compliance** | 97% of requests under 50ms (100-req load test) | clinical-nlp-optimization |
-| **Training Cost** | ~$27 total · SFT + DPO on Llama-3.1-8B | distill-align-llm |
+| **Training Cost** | ~$27 total, SFT + DPO on Llama-3.1-8B | distill-align-llm |
 
 </div>
 
@@ -41,17 +41,17 @@ Current obsessions: LLM alignment (why does reward accuracy diverge from factual
 ## Projects
 
 <details>
-<summary><b>distill-align-llm</b> — SFT → DPO alignment on Llama-3.1-8B · <a href="https://distill-align-llm-aembgrswzfay6bjupbnjpp.streamlit.app">Live dashboard</a></summary>
+<summary><b>distill-align-llm</b> - SFT -> DPO alignment on Llama-3.1-8B, <a href="https://distill-align-llm-aembgrswzfay6bjupbnjpp.streamlit.app">Live dashboard</a></summary>
 
 <br/>
 
 Full alignment pipeline using QLoRA (r=16, α=32, 4-bit NF4). Trained on RunPod for ~$27 total.
 
-The main finding: reward accuracy and factuality are not the same thing. 82% reward accuracy on DPO, but only 17.6% factuality with strict keyword matching on 51 prompts — and 75.7% with a proper 500-prompt LLM-judge benchmark. Same model. The evaluation methodology matters more than people admit.
+The main finding: reward accuracy and factuality are not the same thing. 82% reward accuracy on DPO, but only 17.6% factuality with strict keyword matching on 51 prompts - and 75.7% with a proper 500-prompt LLM-judge benchmark. Same model. The evaluation methodology matters more than people admit.
 
-Token probability analysis showed the model knows the answers — it just suppresses them. Median correct token rank after SFT/DPO: position 2. It's a generation suppression problem, not a forgetting problem.
+Token probability analysis showed the model knows the answers - it just suppresses them. Median correct token rank after SFT/DPO: position 2. It's a generation suppression problem, not a forgetting problem.
 
-**Stack:** PyTorch · HuggingFace TRL · PEFT · bitsandbytes · Streamlit · pytest (44 passing)
+**Stack:** PyTorch, HuggingFace TRL, PEFT, bitsandbytes, Streamlit, pytest (44 passing)
 
 [![Repo](https://img.shields.io/badge/GitHub-distill--align--llm-181717?style=flat-square&logo=github)](https://github.com/SantoshAdabala/distill-align-llm)
 [![Dashboard](https://img.shields.io/badge/Streamlit-Live%20Dashboard-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://distill-align-llm-aembgrswzfay6bjupbnjpp.streamlit.app)
@@ -59,7 +59,7 @@ Token probability analysis showed the model knows the answers — it just suppre
 </details>
 
 <details>
-<summary><b>clinical-nlp-optimization</b> — Knowledge distillation + distributed NLP pipeline for clinical NER</summary>
+<summary><b>clinical-nlp-optimization</b> - Knowledge distillation + distributed NLP pipeline for clinical NER</summary>
 
 <br/>
 
@@ -67,48 +67,48 @@ Compressed Bio_ClinicalBERT (107.7M params) down to DistilClinicalBERT (65.2M) w
 
 The pipeline covers six components end-to-end: distillation, distributed weak labeling on PySpark/EMR, ONNX pruning + INT8 quantization, LangChain agentic evaluation, statistical A/B testing (Mann-Whitney + Wilcoxon), and a production observability stack. 97% SLA compliance on a 100-request load test.
 
-**Stack:** PyTorch · HuggingFace · ONNX Runtime · PySpark · AWS EMR/S3/Lambda · FastAPI · LangChain · Prometheus · Grafana · Terraform
+**Stack:** PyTorch, HuggingFace, ONNX Runtime, PySpark, AWS EMR/S3/Lambda, FastAPI, LangChain, Prometheus, Grafana, Terraform
 
 [![Repo](https://img.shields.io/badge/GitHub-clinical--nlp--optimization-181717?style=flat-square&logo=github)](https://github.com/SantoshAdabala/clinical-nlp-optimization)
 
 </details>
 
 <details>
-<summary><b>TheInheritableAgent</b> — Cryptographic AI inheritance · Auth0 for AI Agents Hackathon</summary>
+<summary><b>TheInheritableAgent</b> - Cryptographic AI inheritance, Auth0 for AI Agents Hackathon</summary>
 
 <br/>
 
-When someone passes away, their family inherits their belongings — but never their way of thinking. This lets a parent's AI-extracted decision patterns be inherited by their child through cryptographically scoped Auth0 tokens, while keeping every piece of personal data permanently inaccessible.
+When someone passes away, their family inherits their belongings - but never their way of thinking. This lets a parent's AI-extracted decision patterns be inherited by their child through cryptographically scoped Auth0 tokens, while keeping every piece of personal data permanently inaccessible.
 
-The boundary is enforced at the identity layer, not application code. 2-of-3 trustee multi-sig, step-up auth for sensitive topics, multi-generational token delegation where scopes can only shrink — never expand.
+The boundary is enforced at the identity layer, not application code. 2-of-3 trustee multi-sig, step-up auth for sensitive topics, multi-generational token delegation where scopes can only shrink - never expand.
 
-**Stack:** Python · Flask · Auth0 Token Vault · JWT · Claude API
+**Stack:** Python, Flask, Auth0 Token Vault, JWT, Claude API
 
 [![Repo](https://img.shields.io/badge/GitHub-TheInheritableAgent-181717?style=flat-square&logo=github)](https://github.com/SantoshAdabala/TheInheritableAgent)
 
 </details>
 
 <details>
-<summary><b>PHI/PII Parser</b> — FHIR-compliant redaction on AWS Lambda</summary>
+<summary><b>PHI/PII Parser</b> - FHIR-compliant redaction on AWS Lambda</summary>
 
 <br/>
 
 Reads HL7 FHIR Bundle JSON files from S3, detects and redacts PII/PHI fields (name, DOB, SSN, address), and writes a cleaned CSV back to S3. Two deployment modes: FastAPI for local on-demand scanning, Lambda for serverless auto-triggering on every S3 upload.
 
-**Stack:** Python · FastAPI · AWS S3/Lambda · Pydantic v2 · Docker/LocalStack
+**Stack:** Python, FastAPI, AWS S3/Lambda, Pydantic v2, Docker/LocalStack
 
 [![Repo](https://img.shields.io/badge/GitHub-PHI--PII--Parser--from--AWS-181717?style=flat-square&logo=github)](https://github.com/SantoshAdabala/PHI-PII-Parser-from-AWS)
 
 </details>
 
 <details>
-<summary><b>Agentic AI Parenting</b> — Multi-agent system on Google ADK + FatSecret</summary>
+<summary><b>Agentic AI Parenting</b> - Multi-agent system on Google ADK + FatSecret</summary>
 
 <br/>
 
 A modular parenting agent built on Google's Agent Development Kit. Root agent delegates to specialized sub-agents: parenting analyst, nutrition meal planner (FatSecret API), and a basic pediatric medical advisor. Stateful sessions remember user context across turns.
 
-**Stack:** Python · Google ADK · Gemini · LiteLLM · FatSecret Nutrition API
+**Stack:** Python, Google ADK, Gemini, LiteLLM, FatSecret Nutrition API
 
 [![Repo](https://img.shields.io/badge/GitHub-Agentic__AI__Parenting-181717?style=flat-square&logo=github)](https://github.com/SantoshAdabala/Agentic_AI_Parenting)
 
